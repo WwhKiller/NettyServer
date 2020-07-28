@@ -24,7 +24,6 @@ public class BioServer {
         ServerSocket serverSocket  = new ServerSocket(6666);
         System.out.println("服务端已经启动，监听端口为：" + 6666);
 
-
         while (true) {
             final Socket socket = serverSocket.accept();
             System.out.println("有新客户端连接上来了。。。");
@@ -49,11 +48,8 @@ public class BioServer {
                 System.out.println("当前线程："+Thread.currentThread().getName()+"      reading....");//阻塞在read
                 int read  = inputStream.read(bytes);
                 if (read != -1){
-
                     String info = new String(bytes,0,read,"GBK");
-
                     System.out.println("当前线程："+Thread.currentThread().getName()+"   socket读取的数据为： "+info);
-
                 }else break;
             }
 
